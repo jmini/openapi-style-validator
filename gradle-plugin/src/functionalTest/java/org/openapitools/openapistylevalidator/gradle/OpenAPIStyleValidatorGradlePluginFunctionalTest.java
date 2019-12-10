@@ -12,7 +12,7 @@ import java.nio.file.Files;
 /**
  * A simple functional test for the 'org.openapitools.openapistylevalidator' plugin.
  */
-public class OpenapiStyleValidatorGradlePluginPluginFunctionalTest {
+public class OpenAPIStyleValidatorGradlePluginFunctionalTest {
     @Test public void canRunTask() throws IOException {
         // Setup the test build
         File projectDir = new File("build/functionalTest");

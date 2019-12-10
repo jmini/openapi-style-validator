@@ -11,12 +11,12 @@ import org.gradle.api.tasks.options.Option;
 import org.openapitools.empoa.swagger.core.internal.SwAdapter;
 import org.openapitools.openapistylevalidator.OpenApiSpecStyleValidator;
 import org.openapitools.openapistylevalidator.ValidatorParameters;
-import org.openapitools.openapistylevalidator.ValidatorParameters.NamingConvention;
+import org.openapitools.openapistylevalidator.ValidatorParameters.NamingStrategy;
 import org.openapitools.openapistylevalidator.styleerror.StyleError;
 
 import java.util.List;
 
-public class OpenapiStyleValidatorTask extends DefaultTask {
+public class OpenAPIStyleValidatorTask extends DefaultTask {
 
     public static final String INPUT_FILE = "inputFile";
 
@@ -54,11 +54,11 @@ public class OpenapiStyleValidatorTask extends DefaultTask {
 
     private boolean validateNaming = true;
     private boolean ignoreHeaderXNaming = true;
-    private NamingConvention pathNamingConvention = NamingConvention.HyphenCase;
-    private NamingConvention parameterNamingConvention = NamingConvention.CamelCase;
-    private NamingConvention propertyNamingConvention = NamingConvention.CamelCase;
+    private NamingStrategy pathNamingConvention = NamingStrategy.HyphenCase;
+    private NamingStrategy parameterNamingConvention = NamingStrategy.CamelCase;
+    private NamingStrategy propertyNamingConvention = NamingStrategy.CamelCase;
     
-    public OpenapiStyleValidatorTask() {
+    public OpenAPIStyleValidatorTask() {
         this.setGroup("Verification");
         this.setDescription("Validate that OpenAPI files against style rules");
     }
@@ -150,17 +150,17 @@ public class OpenapiStyleValidatorTask extends DefaultTask {
     }
 
     @Option(option = PATH_NAMING_CONVENTION, description = "Naming convention for paths")
-    public void setPathNamingConvention(NamingConvention pathNamingConvention) {
+    public void setPathNamingConvention(NamingStrategy pathNamingConvention) {
         this.pathNamingConvention = pathNamingConvention;
     }
 
     @Option(option = PARAMETER_NAMING_CONVENTION, description = "Naming convention for parameters")
-    public void setParameterNamingConvention(NamingConvention parameterNamingConvention) {
+    public void setParameterNamingConvention(NamingStrategy parameterNamingConvention) {
         this.parameterNamingConvention = parameterNamingConvention;
     }
 
     @Option(option = PROPERTY_NAMING_CONVENTION, description = "Naming convention for properties")
-    public void setPropertyNamingConvention(NamingConvention propertyNamingConvention) {
+    public void setPropertyNamingConvention(NamingStrategy propertyNamingConvention) {
         this.propertyNamingConvention = propertyNamingConvention;
     }
 
@@ -177,9 +177,9 @@ public class OpenapiStyleValidatorTask extends DefaultTask {
         parameters.setValidateModelNoLocalDef(validateModelNoLocalDef);
         parameters.setValidateNaming(validateNaming);
         parameters.setIgnoreHeaderXNaming(ignoreHeaderXNaming);
-        parameters.setPathNamingConvention(pathNamingConvention);
-        parameters.setParameterNamingConvention(parameterNamingConvention);
-        parameters.setPropertyNamingConvention(propertyNamingConvention);
+        parameters.setPathNamingStrategy(pathNamingConvention);
+        parameters.setParameterNamingStrategy(parameterNamingConvention);
+        parameters.setPropertyNamingStrategy(propertyNamingConvention);
         return parameters;
      }
 
