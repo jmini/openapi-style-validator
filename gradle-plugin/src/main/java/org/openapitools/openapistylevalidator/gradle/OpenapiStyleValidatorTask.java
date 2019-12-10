@@ -144,7 +144,7 @@ public class OpenapiStyleValidatorTask extends DefaultTask {
         this.validateNaming = validateNaming;
     }
 
-    @Option(option = IGNORE_HEADER_X_NAMING, description = "")
+    @Option(option = IGNORE_HEADER_X_NAMING, description = "Exclude from validation header parameters starting with 'x-'")
     public void setIgnoreHeaderXNaming(boolean ignoreHeaderXNaming) {
         this.ignoreHeaderXNaming = ignoreHeaderXNaming;
     }
