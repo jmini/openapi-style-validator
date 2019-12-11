@@ -10,6 +10,7 @@ import org.junit.Test;
  * A simple unit test for the 'org.openapitools.openapistylevalidator' plugin.
  */
 public class OpenAPIStyleValidatorGradlePluginTest {
+
     @Test
     public void pluginRegistersATask() {
         // Create a test project and apply the plugin
