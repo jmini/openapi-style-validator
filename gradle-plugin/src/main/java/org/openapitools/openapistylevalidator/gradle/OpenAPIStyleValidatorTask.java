@@ -181,6 +181,6 @@ public class OpenAPIStyleValidatorTask extends DefaultTask {
         parameters.setParameterNamingStrategy(parameterNamingConvention);
         parameters.setPropertyNamingStrategy(propertyNamingConvention);
         return parameters;
-     }
+    }
 
 }

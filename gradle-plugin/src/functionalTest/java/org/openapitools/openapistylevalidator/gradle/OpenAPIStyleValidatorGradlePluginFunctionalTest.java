@@ -14,29 +14,31 @@ import java.nio.file.Files;
  * A simple functional test for the 'org.openapitools.openapistylevalidator' plugin.
  */
 public class OpenAPIStyleValidatorGradlePluginFunctionalTest {
-    @Test public void canRunTask() throws IOException {
+
+    @Test
+    public void canRunTask() throws IOException {
         // Setup the test build
         File projectDir = new File("build/functionalTest");
         Files.createDirectories(projectDir.toPath());
-        writeString(new File(projectDir, "openapi.yaml"), "" +
-                "openapi: 3.0.1\n" + 
-                "info:\n" + 
-                "  title: ping test\n" + 
-                "  version: '1.0'\n" + 
-                "servers:\n" + 
-                "  - url: 'http://localhost:9999/'\n" + 
-                "paths:\n" + 
-                "  /ping:\n" + 
-                "    post:\n" + 
-                "      operationId: pingGet\n" + 
-                "      responses:\n" + 
-                "        '201':\n" + 
-                "          description: OK");
+        writeString(new File(projectDir, "openapi.yaml"),
+                        "openapi: 3.0.1\n" + 
+                        "info:\n" + 
+                        "  title: ping test\n" + 
+                        "  version: '1.0'\n" + 
+                        "servers:\n" + 
+                        "  - url: 'http://localhost:9999/'\n" + 
+                        "paths:\n" + 
+                        "  /ping:\n" + 
+                        "    post:\n" + 
+                        "      operationId: pingGet\n" + 
+                        "      responses:\n" + 
+                        "        '201':\n" + 
+                        "          description: OK");
         writeString(new File(projectDir, "settings.gradle"), "");
         writeString(new File(projectDir, "build.gradle"),
-            "plugins {\n" +
-            "  id('org.openapitools.openapistylevalidator')\n" +
-            "}\n");
+                        "plugins {\n" + 
+                        "  id('org.openapitools.openapistylevalidator')\n" + 
+                        "}\n");
 
         // Run the build
         GradleRunner runner = GradleRunner.create();
