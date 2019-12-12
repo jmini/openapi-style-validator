@@ -13,7 +13,7 @@ gradlePlugin {
     plugins {
         openAPIStyleValidator {
             id = 'org.openapitools.openapistylevalidator'
-            implementationClass = 'org.openapitools.openapistylevalidator.gradle.OpenapiStyleValidatorGradlePlugin'
+            implementationClass = 'org.openapitools.openapistylevalidator.gradle.OpenAPIStyleValidatorGradlePlugin'
         }
     }
 }
